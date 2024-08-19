@@ -1,0 +1,22 @@
+# Python
+env/
+*.pyc
+__pycache__/
+
+# Django
+*.sqlite3
+*.log
+/media/
+staticfiles/
+local_settings.py
+
+# Node.js
+node_modules/
+build/
+dist/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+.env
