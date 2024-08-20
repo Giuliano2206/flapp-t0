@@ -1,10 +1,12 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainView from './components/MainView.js'
+import CheckOut from './components/CheckOut.js';
+import CartProvider from './context/CartContext.js';
 
 function App() {
   return (
-    <div>
+    <CartProvider>
       <BrowserRouter>
         <Routes>
           <Route
@@ -14,15 +16,15 @@ function App() {
             }
           />
           <Route
-            path='/cheackout'
+            path='/checkout'
             element={
-              <MainView/>
+              <CheckOut/>
             }
           />
           
         </Routes>
       </BrowserRouter>
-    </div>
+    </CartProvider>
   );
 }
 
