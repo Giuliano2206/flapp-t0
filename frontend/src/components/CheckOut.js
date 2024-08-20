@@ -4,7 +4,10 @@ import CartItem from "./CartItem";
 
 const CheckOut = () => {
     const { cart, setCart } = useContext(CartContext);
-    
+    const handleClearCart = () => {
+        setCart(null);
+    }
+
     return (
         <div>
             <h1>Tu carrito</h1>
@@ -25,7 +28,7 @@ const CheckOut = () => {
             </div>
             <div>
                 <button>Cotizar despacho</button>
-                <button>Limpiar carrito</button>
+                <button onClick={() => handleClearCart()}>Limpiar carrito</button>
                 <button>Volver</button>
             </div>
         </div>
