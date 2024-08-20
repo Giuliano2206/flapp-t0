@@ -13,6 +13,13 @@ function App() {
               <MainView/>
             }
           />
+          <Route
+            path='/cheackout'
+            element={
+              <MainView/>
+            }
+          />
+          
         </Routes>
       </BrowserRouter>
     </div>
