@@ -13,6 +13,12 @@ function App() {
               <MainView/>
             }
           />
+          <Route
+            path='/checkout'
+            element={
+              <MainView/>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
