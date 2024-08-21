@@ -1,0 +1,32 @@
+/* Header.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff; /* Fondo blanco */
+    border-bottom: 2px solid #ff8400; /* Detalles anaranjados */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+}
+
+.logo {
+    height: 40px; /* Ajusta según el tamaño de tu logo */
+}
+
+.header-message {
+    color: #ff8400; /* Detalles anaranjados */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+/* Media Query para ocultar el texto en dispositivos móviles */
+@media (max-width: 768px) {
+    .header-message {
+        display: none; /* Oculta el texto del header en pantallas pequeñas */
+    }
+}
