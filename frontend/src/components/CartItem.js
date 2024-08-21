@@ -1,7 +1,6 @@
 import React from "react";
 
 const CartItem = ( {item} ) => {
-    console.log("llega: ", item)
     const {discountPercentage, discountedTotal, id, price, quantity, thumbnail, title, total} = item;
     return(
         <div>
