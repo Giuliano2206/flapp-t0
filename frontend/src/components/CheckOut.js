@@ -38,7 +38,6 @@ const CheckOut = () => {
                 }
             })
             .then((response) => {
-                console.log(response);
                 setAvailableDispatch(response.data);
                 setCalculated(true);
             })
