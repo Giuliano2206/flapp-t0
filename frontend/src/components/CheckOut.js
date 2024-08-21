@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
+import Header from "./Header";
 
 const cartParser = (cart) => {
     return cart.map(item => ({
@@ -19,6 +20,7 @@ const CheckOut = () => {
     const { cart, setCart } = useContext(CartContext);
     const [availableDispatch, setAvailableDispatch] = useState(false);
     const [calculated, setCalculated] = useState(false);
+    const [loading, setLoading] = useState(false);
     
     const handleClearCartClick = () => {
         setCart(null);
@@ -31,6 +33,7 @@ const CheckOut = () => {
     }
 
     const handleQuoteDispatchClick = async () => {
+        setLoading(true);
         axios.post(`http://127.0.0.1:8000/api/cart/`, 
             cartParser(cart.products), {
                 headers: {
@@ -44,31 +47,42 @@ const CheckOut = () => {
             .catch((error) => {
                 console.log(error);
             })
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
     return (
-        <div>
+        <div className="container">
+            <Header/>
             <h1>Tu carrito</h1>
             <div>
                 { ( !cart?.products || cart.products.length === 0 ) ? (
-                    <p>No hay productos en el carrito.</p>
+                    <h2>No hay productos en el carrito.</h2>
                 ) : (
-                    <>
+                    <div>
                         {cart.products.map((item, index) => {
                             return(
                                 <CartItem key={index} item={item}/>
                             )
                         })}
-                        <h3>Total del carrito: ${cart.total}</h3>
-                    </>
+                    <h3>Total del carrito: ${cart.total}</h3>
+                    </div>
                     
                 )}
             </div>
             <div>
+                {calculated && (availableDispatch ? (
+                    <h3> Envío Nomad ⚡️: $3670</h3>
+                ) : (
+                    <h3> No hay envíos disponibles :( </h3>
+                ))}
+            </div>
+            <div className="button-container">
                 <button onClick={() => handleQuoteDispatchClick()}
                         disabled={!cart || cart.products.length === 0}
                 >
-                    Cotizar despacho
+                    {loading ? <span className="loading-spinner"></span> : "Cotizar despacho"}
                 </button>
                 <button onClick={() => handleClearCartClick()}
                         disabled={!cart || cart.products.length === 0}
@@ -76,14 +90,7 @@ const CheckOut = () => {
                     Limpiar carrito
                 </button>
                 <button onClick={() => handleBackClick()}>Volver</button>
-            </div>
-            <div>
-                {calculated && (availableDispatch ? (
-                    <p> Envío Nomad ⚡️ - $3670</p>
-                ) : (
-                    <p>: No hay envíos disponibles :( </p>
-                ))}
-            </div>
+            </div>    
         </div>
     )
 }
