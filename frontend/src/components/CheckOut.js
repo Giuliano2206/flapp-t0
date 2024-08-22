@@ -15,6 +15,9 @@ const cartParser = (cart) => {
 }
 
 
+/**
+ * CheckOut component allows users to clearthe cart, return to main view and calculate the dispatch
+ */
 const CheckOut = () => {
     const navigate = useNavigate();
     const { cart, setCart } = useContext(CartContext);
@@ -22,16 +25,26 @@ const CheckOut = () => {
     const [calculated, setCalculated] = useState(false);
     const [loading, setLoading] = useState(false);
     
+    /**
+     * Handle the click event, clear the cart.
+     * Navigates to the main view. 
+     */
     const handleClearCartClick = () => {
         setCart(null);
         setCalculated(false);
         navigate('/');
     }
 
+    /**
+     * Handle the click event, navigates to the main view. 
+     */
     const handleBackClick = () => {
         navigate('/');
     }
 
+    /**
+     * Handle the click event, calls to api and update statuses. 
+     */
     const handleQuoteDispatchClick = async () => {
         setLoading(true);
         axios.post(`http://127.0.0.1:8000/api/cart/`, 

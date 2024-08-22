@@ -62,3 +62,7 @@ La lógica del endpoint solicitado se encuentra en `backend/cart/view.py`.
 En relación con el front, los componentes principales son `MainView.js` y `CheckOut.js` ambos archivos se encuentran en `frontend/src/components`. Se intentó ser lo más eficiente posible con los cambios de estado. 
 
 En el repositorio se podrá ver el trabajo desarrollado, con commits, isuues y pull requests realizados.
+
+## Extras
+
+Video de una demo que muestra todas las funcionalidades solicitadas- [Link](https://youtu.be/CJLkqtgaQIk).

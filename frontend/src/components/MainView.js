@@ -5,11 +5,18 @@ import { CartContext } from "../context/CartContext";
 import Header from "./Header";
 import '../styles/MainView.css';
 
+/**
+ * MainView component allows users to generate a random shopping cart and procced to checkout
+ */
 const MainView = () => {
     const navigate = useNavigate();
     const { cart, setCart } = useContext(CartContext);
     const [loading, setLoading] = useState(false);
     
+    /**
+     * Handle the click event, generate a random shopping cart
+     * Sends a GET request to DummyJson API and updates the cart state in the context.
+     */
     const handleGenerateCartClick = async () => {
         setLoading(true);
         let max = 50
@@ -26,7 +33,10 @@ const MainView = () => {
                 setLoading(false);
             })
     }
-
+    /**
+     * Handles the click event to proceed to checkout.
+     * Navigates to the checkout page if the cart exists and is not empty.
+     */
     const handleCheckoutClick = () => {
         if (cart) {
             navigate('/checkout')
