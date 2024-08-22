@@ -32,7 +32,11 @@ En una terminal distinta a la anterior hay que realizar lo siguiente.
 
 1. Activar el entorno con:
     ```
-    venv/Scripts/activate
+    # Para windows en cmd
+    venv\Scripts\activate
+
+    # Para macOS o Linux 
+    source venv/Scripts/activate
     ```
 
 1. Instalar las dependencias con:
@@ -44,7 +48,7 @@ En una terminal distinta a la anterior hay que realizar lo siguiente.
     ```
     python manage.py runserver
     ```
-    (esto estando en la carpeta backend `cd backend`)
+    (esto estando en la carpeta backend `cd backend`, desde la carpeta raiz)
 
 Luego de seguir todos estos pasos es muy seguro que la aplicación esté totalmente funcional en [localhost:3000](http://localhost:3000/).
 
