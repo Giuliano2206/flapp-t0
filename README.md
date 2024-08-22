@@ -63,6 +63,8 @@ En relación con el front, los componentes principales son `MainView.js` y `Chec
 
 En el repositorio se podrá ver el trabajo desarrollado, con commits, isuues y pull requests realizados.
 
+DJANGO_SECRET_KEY se encuentra en un archivo .env que debe ser creado en el directorio raiz del proyecto `flap-t0/`. (viene en el correo de entrega).
+
 ## Extras
 
 Video de una demo que muestra todas las funcionalidades solicitadas- [Link](https://youtu.be/CJLkqtgaQIk).
